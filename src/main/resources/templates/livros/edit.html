@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Livros</title>
+</head>
+<body>
+	<h1>Editar livro</h1>
+	
+	<form th:action="@{/livros/gravar}" method="post" th:object="${livro}" action="#" >
+ 
+        	<input type="hidden"  th:field="*{id}" />
+
+        	Título: <input type="text" th:field="*{nome}"><br/>
+        	Autor:
+            	<select th:object="${livro}" th:field="*{autor}">
+                	<option value="">Selecione o Autor</option>
+                	<option th:each="autor : ${listaAutores}" th:value="${autor.id}" th:utext="${autor.nome} " selected="selected"></option>
+            	</select><br/>
+
+        	Total Páginas: <input type="text" th:field="*{quantidadePaginas}" >
+        	<input type="submit" value="enviar">
+    	</div>
+</form>
+
+	
+</body>
+</html>

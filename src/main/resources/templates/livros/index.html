@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+<meta charset="UTF-8" />
+<title>Livros</title>
+
+</head>
+
+<body>
+	<h1>Listagem de livros</h1>
+	
+	<ul>
+	
+		<li>
+			<a href="/livros/list">Listagem</a>
+		</li>
+		
+		<li>
+			<a href="/livros/editar/1">Editar</a>
+		</li>
+		
+		<li>			
+			<a href="/livros/novo">Cadastrar</a>			
+		</li>
+		
+	</ul>
+	
+	<hr>
+	<table>
+	<tr th:each="livro : ${listaLivros}">
+	
+		<td th:text="${livro.id}">1</td>
+		
+		<td><a href="#" th:href="@{'/livros/editar/'+${livro.id}}" th:text="${livro.nome}"> Título </a></td>
+		
+	</tr>
+	</table>
+	
+</body>
+</html>
