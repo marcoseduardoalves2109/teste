@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<meta charset="UTF-8" />
+	<table class="table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col"><a class="dropdown-item-active" href="/users/list">Usuários</a></th>
+	      <th scope="col"><a class="dropdown-item-active" href="/roles/list">Regras</a></th>
+	      <th scope="col"><a class="dropdown-item-active" href="/livros/list">Livros</a></th>
+	      <th scope="col"><a class="dropdown-item-active" href="/autores/list">Autores</a></th>
+	      <th scope="col"><a class="dropdown-item-active" href="/users/login">Login</a></th>
+          <th scope="col"><a class="dropdown-item-active" href="/users/logout">Logout</a></th>    
+	    </tr>
+	  </thead>
+	</table>  
+<title>livros</title>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="rowf justify-content-md-center">
+<div class="colf-3">
+<div class="cardf">
+
+<h1>Cadastro de Livros</h1>		
+
+<form th:action="@{/livros/gravar}" method="post" th:object="${livro}" action="#">
+
+<div class="cardf-body">	
+
+<input type="hidden" th:field="*{id}" />
+
+<div class="formf-group">
+
+<label for="nome">Título</label>
+<input type="text" th:field="*{nome}" id="name" name="nome" placeholder="Regin Cazé" class="form-control">
+<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Error</span>
+
+<label for="autor">Autor:</label>
+            	<select th:object="${livro}" th:field="*{autor}"  class="form-control">
+                	<option value="">Selecione o Autor</option>
+                	<option th:each="autor : ${listaAutores}" th:value="${autor.id}" th:utext="${autor.nome} " selected="selected"></option>
+            	</select><br/>
+
+<label for="qtdePaginas">Total Páginas:</label> 
+<input type="text" th:field="*{quantidadePaginas}"  class="form-control">
+
+
+
+</div>
+
+</div>
+
+<div class="cardf-footer text-center">
+<button type="submit" class="btn btn-success">Gravar</button>
+
+<a href="/livros/list" class="btn btn-success">Voltar</a>
+</div>
+
+</form>
+
+
+
+</div>
+</div>
+</div>
+</div>	
+</div>
+
+
+</body>
+</html>

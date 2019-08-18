@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 <meta charset="UTF-8" />
 <title>Autores</title>
 </head>
 <body>
+	<table class="table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col"><a class="dropdown-item-active" href="/users/list">Usuários</a></th>
+	      <th scope="col"><a class="dropdown-item-active" href="/roles/list">Regras</a></th>
+	      <th scope="col"><a class="dropdown-item-active" href="/livros/list">Livros</a></th>
+	      <th scope="col"><a class="dropdown-item-active" href="/autores/list">Autores</a></th>
+	      <th scope="col"><a class="dropdown-item-active" href="/users/login">Login</a></th>
+          <th scope="col"><a class="dropdown-item-active" href="/users/logout">Logout</a></th>
+	    </tr>
+	  </thead>
+	</table> 
 	<h1>Listagem de autores</h1>
 	
 	<ul>
-	
-		<li>
-			<a href="/autores/list">Listagem</a>
-		</li>
-		
-		<li>
-			<a href="/autores/editar/1">Editar</a>
-		</li>
-		
-		<li>			
-			<a href="/autores/novo">Cadastrar</a>			
-		</li>
+			
+	<a href="/autores/novo" class="btn btn-outline-success">Cadastrar</a>			
+
 		
 	</ul>
+	<table class="table">
+		<thead>
+	    <tr>
+	      <th scope="col">Código</th>
+	      <th scope="col">Nome</th>
+	      <th scope="col">Excluir</th>
+	    </tr>
+	  </thead>
+	<tr th:each="Autor : ${listaAutores}">
 	
+		<td th:text="${Autor.id}">1</td>
+		
+		<td><a href="#" th:href="@{'/autores/editar/'+${Autor.id}}" th:text="${Autor.nome}"> Autor </a></td>
+		<td><a href="#" th:href="@{'/autores/excluir/'+${Autor.id}}" class="btn btn-outline-danger"> Excluir </a></td>
+		
+	</tr>
+	</tr>
+	</table>
 	
 </body>
 </html>

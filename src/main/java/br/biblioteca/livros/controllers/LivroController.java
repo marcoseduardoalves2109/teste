@@ -36,16 +36,12 @@ public class LivroController {
 
 		List<Livro> livros = this.serviceLivro.listaLivros();
 
-		for (Livro livro : livros) {
-			System.out.println(livro.getNome());
-		}
-
 		return new ModelAndView(TEMPLATE + "/index", "listaLivros", livros);
 	}
 
 	@GetMapping("/novo")
 	public ModelAndView create(@ModelAttribute Livro livro) {
-		ModelAndView modelAndView = new ModelAndView(TEMPLATE + "/create");
+		ModelAndView modelAndView = new ModelAndView(TEMPLATE + "/form");
 		Iterable<Autor> autores = this.serviceAutor.listaAutores();
 		modelAndView.addObject("listaAutores", autores);
 		return modelAndView;
@@ -56,7 +52,7 @@ public class LivroController {
 	public ModelAndView storage(@ModelAttribute("livro") @Valid Livro livro, BindingResult bindingResult) {
 		if(bindingResult.hasErrors()) {
 			//return new ModelAndView("livros/create");
-			ModelAndView modelAndView = new ModelAndView("livros/create");
+		ModelAndView modelAndView = new ModelAndView(TEMPLATE + "/form");
 			Iterable<Autor> autores = this.serviceAutor.listaAutores();
 			modelAndView.addObject("listaAutores", autores);
 			return modelAndView;
@@ -70,7 +66,7 @@ public class LivroController {
 	public ModelAndView edit(@PathVariable("id") Long id) {
 		Livro livro = this.serviceLivro.buscarLivro(id);
 		List<Autor> autores = this.serviceAutor.listaAutores();
-		ModelAndView modelAndView = new ModelAndView(TEMPLATE + "/edit");
+		ModelAndView modelAndView = new ModelAndView(TEMPLATE + "/form");
 		modelAndView.addObject("listaAutores", autores);
 		modelAndView.addObject("livro", livro);
 		return modelAndView;

@@ -7,15 +7,11 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <meta charset="UTF-8" />
-<title>Livros</title>
+<title>Usuários</title>
 
 </head>
 
 <body>
-
-	
-
-		
 	<table class="table">
 	  <thead class="thead-dark">
 	    <tr>
@@ -24,31 +20,28 @@
 	      <th scope="col"><a class="dropdown-item-active" href="/livros/list">Livros</a></th>
 	      <th scope="col"><a class="dropdown-item-active" href="/autores/list">Autores</a></th>
       	  <th scope="col"><a class="dropdown-item-active" href="/users/login">Login</a></th>
-          <th scope="col"><a class="dropdown-item-active" href="/users/logout">Logout</a></th>	      
+      	  <th scope="col"><a class="dropdown-item-active" href="/users/logout">Logout</a></th>	      
 	    </tr>
 	  </thead>
 	</table>  
-	<h1>Listagem de livros</h1>			
-	<a href="/livros/novo" class="btn btn-outline-success">Cadastrar</a>			
-	
-
-	
+	<h1>Listagem de usuários</h1>
 	<hr>
 	<table class="table">
 		<thead>
 	    <tr>
-	      <th scope="col">Código</th>
-	      <th scope="col">Título</th>
-	      <th scope="col">Excluir</th>
+
+	      <th scope="col">Usuário</th>
+	      <th scope="col">Regra</th>
+	      <th scope="col"></th>
 	    </tr>
 	  </thead>
 	  <tbody>
-		<tr th:each="livro : ${listaLivros}">
+		<tr th:each="user : ${listaUsers}">
 		
-			<td th:text="${livro.id}">1</td>
-			
-			<td><a href="#" th:href="@{'/livros/editar/'+${livro.id}}" th:text="${livro.nome}"> Título </a></td>
-			<td><a href="#" th:href="@{'/livros/excluir/'+${livro.id}}" class="btn btn-outline-danger"> Excluir </a></td>
+
+			<td><a href="#" th:href="@{'/users/editar/'+${user.id}}" th:text="${user.username}"> Título </a></td>
+			<td th:text="${user.getRole().getName()}">1</td>
+			<td><a href="#" th:href="@{'/users/excluir/'+${user.id}}" class="btn btn-outline-danger"> Excluir </a></td>
 			
 			
 		</tr>

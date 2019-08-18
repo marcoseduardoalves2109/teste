@@ -6,11 +6,19 @@
 </head>
 <body>
 	<h1>Novo Autor</h1>
-	
+	<table class="table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col"><a class="dropdown-item-active" href="/users/list">Usuários</a></th>
+	      <th scope="col"><a class="dropdown-item-active" href="/roles/list">Regras</a></th>
+	      <th scope="col"><a class="dropdown-item-active" href="/livros/list">Livros</a></th>
+	      <th scope="col"><a class="dropdown-item-active" href="/autores/list">Autores</a></th>
+      	  <th scope="col"><a class="dropdown-item-active" href="/users/login">Login</a></th>
+          <th scope="col"><a class="dropdown-item-active" href="/users/logout">Logout</a></th>	      
+	    </tr>
+	  </thead>
+	</table>  	
 	<form method="post" action="/autores/gravar">
-	
-		
-		<input type="hidden" name="id" value="1" />
 		
 		<label for="nome">Nome:</label>
 		<input type="text" name="nome" id="nome" />

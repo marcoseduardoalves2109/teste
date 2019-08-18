@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
-<title>Livros</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<meta charset="UTF-8" />
+	<title>Sistema de Biblioteca</title>
 </head>
+
 <body>
-	<h1>
-		<a href="/livros/list">Livros</a>
-		<hr>
-		<a href="/autores/list">Autores</a>
-	</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"><a class="dropdown-item-active" href="/users/list">Usuários</a></th>
+      <th scope="col"><a class="dropdown-item-active" href="/roles/list">Regras</a></th>
+      <th scope="col"><a class="dropdown-item-active" href="/livros/list">Livros</a></th>
+      <th scope="col"><a class="dropdown-item-active" href="/autores/list">Autores</a></th>
+      <th scope="col"><a class="dropdown-item-active" href="/users/login">Login</a></th>
+      <th scope="col"><a class="dropdown-item-active" href="/users/logout">Logout</a></th>
+    </tr>
+  </thead>
+</table>  
+
 </body>
 </html>
